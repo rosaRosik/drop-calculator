@@ -1,5 +1,6 @@
 package com.rosik.rosa.dropcalculator;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
@@ -49,23 +50,21 @@ public class MainActivity extends AppCompatActivity {
                     wynik.setText("moa1/8");
 
                 }else{
-                    AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(getApplicationContext());
 
-                    dlgAlert.setMessage("Zaznacz jaki masz celowniczek mordeczko");
-                    dlgAlert.setTitle("Oups, coś poszło źle");
-                    dlgAlert.setPositiveButton("OK", null);
-                    dlgAlert.setCancelable(true);
-                    dlgAlert.create().show();
+                    new AlertDialog.Builder(v.getContext())
+                            .setTitle("Zapomniałeś o czymś")
+                            .setMessage("Podaj nazwe celownika mordeczko")
 
-                    dlgAlert.setPositiveButton("Ok",
-                            new DialogInterface.OnClickListener() {
+
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
 
                                 }
-                            });
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
 
                 }
-
             }
         });
 
