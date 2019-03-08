@@ -41,25 +41,27 @@ public class MainActivity extends AppCompatActivity {
 
                     float w = n / (1 * (float)m/100);
 
-                    wynik.setText("MILS (1/10)\n" +
-                            "1 mils na 100 m   = 10 cm\n" +
-                            "0.1 mils na 100 m = 1 cm\n" +
-                            "czyli:\n+" +
-                            "0.1 mils na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
+                    wynik.setText("JAK TO LICZYĆ?\n"+
+                                  "______\n"+
+                            "1 MILS na 100 m = 10cm\n" +
+                            "1/10 MILS na 100m = 1cm\n" +
+                            "WIĘC:\n\n" +
+                            "1/10 MILS na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
                             n + "/"+(float)m/100 +" = "+w+"\n"+
-                            "POPRAWKA ->"+ (int)w +"klik");
+                            );
+
+                    // w to twoja poprawka
 
                 }else if(moa4.isChecked()){
-
-                    wynik.setText("moa 1/4");
+                  moa(m,n,0.75,4);
 
                 }else if(moa6.isChecked()){
 
-                    wynik.setText("moa1/6");
+                    moa(m,n,0.5,6);
 
                 }else if (moa8.isChecked()){
 
-                    wynik.setText("moa1/8");
+                    moa(m,n,0.375,8);
 
                 }else{
 
@@ -97,6 +99,22 @@ public class MainActivity extends AppCompatActivity {
         wynik = (TextView)findViewById(R.id.wynik);
     }
 
+    public void moa(int metry, int opad,double nastawa,int moa){
+
+        double w = opad / (nastawa * (float)metry/100);
+        double roundOff = Math.round(w * 100.0) / 100.0;
+        double m4 = Math.round((nastawa * (float)metry/100) * 100.0) / 100.0;
+        wynik.setText("JAK TO LICZYĆ?\n"+
+                "\n1 MOA na 100m    = 3cm\n" +
+                "1/"+moa+" MOA na 100m  = "+ nastawa*10 +" mm\n" +
+                "\nWIĘC:\n"+
+                "1/"+moa+" MOA na "+metry + "m" +" -> "+nastawa*10+"mm *"+(float)metry/100 +" = "+ m4+ "cm\n"+
+                opad +"/"+m4 +" = "+ roundOff+"\n"+
+                );
+
+        //w to twoja poprawka
+
+    }
 
 
 }
