@@ -34,56 +34,51 @@ public class MainActivity extends AppCompatActivity {
         oblicz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            int m=0;
+            int n=0;
+                if (odleglosc.getText().toString().length() < 1 || opad.getText().toString().length() < 1){
 
-                int  m = Integer.parseInt(odleglosc.getText().toString());
-                int  n = Integer.parseInt(opad.getText().toString());
+                    alert("Mamy Pro8l3m :O","Podaj dane dzbanie ;> ",v);
 
-                if(mils.isChecked()){
+                } else {
 
-                    float w = n / (1 * (float)m/100);
+                    m = Integer.parseInt(odleglosc.getText().toString());
+                    n = Integer.parseInt(opad.getText().toString());
 
-                    wynik.setText("JAK TO LICZYĆ?\n"+
-                            "\n1 MILS na 100 m = 10cm\n" +
-                            "1/10 MILS na 100m = 1cm\n" +
-                            "WIĘC:\n\n" +
-                            "1/10 MILS na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
-                            n + "/"+(float)m/100 +" = "+w+"\n"
-                            );
+                    if (mils.isChecked()) {
 
-                    // w to twoja poprawka
-                    poprawka.setText((int)w + " KLIK");
+                        float w = n / (1 * (float) m / 100);
 
-                }else if(moa4.isChecked()){
-                  moa(m,n,0.75,4);
+                        wynik.setText("JAK TO LICZYĆ?\n" +
+                                "\n1 MILS na 100 m = 10cm\n" +
+                                "1/10 MILS na 100m = 1cm\n" +
+                                "WIĘC:\n\n" +
+                                "1/10 MILS na " + m + "m -> 1cm * " + (float) m / 100 + " = " + (float) m / 100 + "cm\n" +
+                                n + "/" + (float) m / 100 + " = " + w + "\n"
+                        );
 
-                }else if(moa6.isChecked()){
+                        // w to twoja poprawka
+                        poprawka.setText(rounding(w) + " KLIK");
 
-                    moa(m,n,0.5,6);
+                    } else if (moa4.isChecked()) {
+                        moa(m, n, 0.75, 4);
 
-                }else if (moa8.isChecked()){
+                    } else if (moa6.isChecked()) {
 
-                    moa(m,n,0.375,8);
+                        moa(m, n, 0.5, 6);
 
-                }else{
+                    } else if (moa8.isChecked()) {
 
-                    new AlertDialog.Builder(v.getContext())
-                            .setTitle("Zapomniałeś o czymś")
-                            .setMessage("Podaj nazwe celownika mordeczko ;3")
+                        moa(m, n, 0.375, 8);
 
+                    } else {
 
-                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
+                        alert("Mamy Pro8l3m :O", "Wybierz siatkę celownika mordeczko", v);
 
-                                }
-                            })
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .show();
-
+                    }
                 }
             }
         });
-
-
 
     }
 
@@ -116,8 +111,31 @@ public class MainActivity extends AppCompatActivity {
                 );
 
         //w to twoja poprawka
-        poprawka.setText((int)w + " KLIK");
+        poprawka.setText(rounding(w) + " KLIK");
 
+    }
+    public int rounding(double number){
+
+        int numberHelp = (int) number;
+        if ((numberHelp + 1) - number < number - (numberHelp)){
+            return (int) (number+1);
+        }
+        else
+            return (int)number;
+
+    }
+    public void alert(String title, String desc, View v){
+        new AlertDialog.Builder(v.getContext())
+                .setTitle(title)
+                .setMessage(desc)
+
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
 
