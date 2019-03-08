@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText odleglosc;
     private EditText opad;
     private TextView wynik;
+    private TextView poprawka;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                             );
 
                     // w to twoja poprawka
+                    poprawka.setText(w + " KLIK");
 
                 }else if(moa4.isChecked()){
                   moa(m,n,0.75,4);
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
                     new AlertDialog.Builder(v.getContext())
                             .setTitle("Zapomniałeś o czymś")
-                            .setMessage("Podaj nazwe celownika mordeczko")
+                            .setMessage("Podaj nazwe celownika mordeczko ;3")
 
 
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         odleglosc = (EditText)findViewById(R.id.meters);
         opad = (EditText)findViewById(R.id.centy);
         wynik = (TextView)findViewById(R.id.wynik);
+        poprawka = (TextView)findViewById(R.id.poprawka);
+
     }
 
     public void moa(int metry, int opad,double nastawa,int moa){
@@ -113,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 );
 
         //w to twoja poprawka
+        poprawka.setText(w + " KLIK");
 
     }
 
