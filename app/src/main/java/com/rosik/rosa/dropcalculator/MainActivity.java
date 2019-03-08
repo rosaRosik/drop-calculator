@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     float w = n / (1 * (float)m/100);
 
                     wynik.setText("JAK TO LICZYĆ?\n"+
-                                  "______\n"+
-                            "1 MILS na 100 m = 10cm\n" +
+                            "\n1 MILS na 100 m = 10cm\n" +
                             "1/10 MILS na 100m = 1cm\n" +
                             "WIĘC:\n\n" +
                             "1/10 MILS na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                             );
 
                     // w to twoja poprawka
-                    poprawka.setText(w + " KLIK");
+                    poprawka.setText((int)w + " KLIK");
 
                 }else if(moa4.isChecked()){
                   moa(m,n,0.75,4);
@@ -111,13 +110,13 @@ public class MainActivity extends AppCompatActivity {
         wynik.setText("JAK TO LICZYĆ?\n"+
                 "\n1 MOA na 100m    = 3cm\n" +
                 "1/"+moa+" MOA na 100m  = "+ nastawa*10 +" mm\n" +
-                "\nWIĘC:\n"+
+                "WIĘC:\n\n"+
                 "1/"+moa+" MOA na "+metry + "m" +" -> "+nastawa*10+"mm *"+(float)metry/100 +" = "+ m4+ "cm\n"+
                 opad +"/"+m4 +" = "+ roundOff+"\n"
                 );
 
         //w to twoja poprawka
-        poprawka.setText(w + " KLIK");
+        poprawka.setText((int)w + " KLIK");
 
     }
 
