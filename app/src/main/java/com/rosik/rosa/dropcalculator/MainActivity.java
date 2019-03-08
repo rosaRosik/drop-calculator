@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.*;
 
@@ -33,9 +34,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                int  m = Integer.parseInt(odleglosc.getText().toString());
+                int  n = Integer.parseInt(opad.getText().toString());
+
                 if(mils.isChecked()){
 
-                    wynik.setText("milsy");
+                    float w = n / (1 * (float)m/100);
+
+                    wynik.setText("MILS (1/10)\n" +
+                            "1 mils na 100 m   = 10 cm\n" +
+                            "0.1 mils na 100 m = 1 cm\n" +
+                            "czyli:\n+" +
+                            "0.1 mils na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
+                            n + "/"+(float)m/100 +" = "+w+"\n"+
+                            "POPRAWKA ->"+ (int)w +"klik");
 
                 }else if(moa4.isChecked()){
 
@@ -84,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         opad = (EditText)findViewById(R.id.centy);
         wynik = (TextView)findViewById(R.id.wynik);
     }
+
 
 
 }
