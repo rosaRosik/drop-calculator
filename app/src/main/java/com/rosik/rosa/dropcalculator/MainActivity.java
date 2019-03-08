@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                             "1/10 MILS na 100m = 1cm\n" +
                             "WIĘC:\n\n" +
                             "1/10 MILS na "+m+"m -> 1cm * "+(float)m/100 +" = "+ (float)m/100+"cm\n"+
-                            n + "/"+(float)m/100 +" = "+w+"\n"+
+                            n + "/"+(float)m/100 +" = "+w+"\n"
                             );
 
                     // w to twoja poprawka
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 "1/"+moa+" MOA na 100m  = "+ nastawa*10 +" mm\n" +
                 "\nWIĘC:\n"+
                 "1/"+moa+" MOA na "+metry + "m" +" -> "+nastawa*10+"mm *"+(float)metry/100 +" = "+ m4+ "cm\n"+
-                opad +"/"+m4 +" = "+ roundOff+"\n"+
+                opad +"/"+m4 +" = "+ roundOff+"\n"
                 );
 
         //w to twoja poprawka
