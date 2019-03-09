@@ -9,8 +9,9 @@ I made this application because I like long range shooting and this basic app wi
 ## Language
 
 App is in polish[PL] 
+</br>
 ``
-In the near future I will add support for english version
+  - In the near future I will add support for english version
 ``
 
 ## Installation
